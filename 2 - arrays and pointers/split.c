@@ -1,3 +1,7 @@
+/* Dana jest tablica liczb całkowitych, T1, o długości n. Napisz program, który na wejściu
+otrzymuje wartości T1 i dzieli ją na dwie tablice, T2 i T3, tak, by w jednej z nich znalazły
+się elementy parzyste a w drugiej nieparzyste. Następnie posortuj obie tablice. */
+
 #include <stdio.h>
 
 void swap(int* a, int* b)
@@ -7,7 +11,7 @@ void swap(int* a, int* b)
     *b = c;
 }
 
-void bubble_sort(int tab[], int N)
+void bubble_sort(int* tab, int N)
 {
     for (int i = N - 1; i > 0; --i)
     {
@@ -30,21 +34,42 @@ void bubble_sort(int tab[], int N)
 int main()
 {
     int n = 0;
-    int T2[1000];
-    int T3[1000];
+    int T1[1000];
     int t2 = 0;
     int t3 = 0;
 
     scanf("%d", &n);
     for (int i = 0; i < n; ++i)
     {
-        int temp = 0;
-        scanf("%d", &temp);
+        int input = 0;
+        scanf("%d", &input);
 
-        if (temp % 2 == 0)
-            T2[t2++] = temp;
+        T1[i] = input;
+
+        if (input % 2 == 0)
+            t2++;
         else
-            T3[t3++] = temp;
+            t3++;
+    }
+
+    int* T2 = malloc(sizeof(int) * t2);
+    int* T3 = malloc(sizeof(int) * t3);
+    t2 = 0;
+    t3 = 0;
+
+    for(int i=0; i<n; i++)
+    {
+
+        if (T1[i] % 2 == 0)
+        {
+            T2[t2] = T1[i];
+            t2++;
+        }
+        else
+        {
+            T3[t3] = T1[i];
+            t3++;
+        }
     }
 
     bubble_sort(T2, t2);
