@@ -37,12 +37,14 @@ int main()
     int n = 0;
     scanf("%d", &n);
 
+    // delcaration 2D array
     int** M = malloc(sizeof(int*) * n);
     for(int i=0; i<n; i++)
     {
         M[i] = malloc(sizeof(int) * n);
     }
 
+    // input data
     for(int i=0; i<n; i++)
     {
         for(int j=0; j<n; j++)
@@ -57,5 +59,12 @@ int main()
 
     printf(triangular_upper(M, n) ? "YES" : "NO");
 
+    // free memory
+    for(int i=0; i<n; i++)
+    {
+        free(M[i]);
+    }
+    free(M);
+    
     return 0;
 }
