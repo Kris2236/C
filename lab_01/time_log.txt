@@ -1,0 +1,20 @@
+merge()     : 3.474783 s
+save_merged()   : 0.082381 s
+delete_block()  : 0.002025 s
+Total_time  : 3.559189 s
+
+
+
+
+
+
+
+
+
+gcc -fPIC -c src/my_lib.c
+gcc -shared -o libmy_lib.so my_lib.o
+gcc -c main.c
+gcc -o main main.o libmy_lib.so
+sudo mv libmy_lib.so /usr/lib/
+sudo ldconfig
+./main

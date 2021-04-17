@@ -1,0 +1,4 @@
+make
+./main
+
+watch results

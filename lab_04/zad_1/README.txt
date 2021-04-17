@@ -1,0 +1,5 @@
+make
+./main
+
+...
+paste command

@@ -1,0 +1,71 @@
+FORK:
+Funkcja uruchamia nowy proces o nowym PID jednak dziedziczy ustawienia sygnałów z procesu macierzystego.
+
+
+EXEC:
+Funkcja exec wywołuej proces dzieziczący ustawienia sygnałów a przede wszystkim PID.
+W momencie wykonania funkcji exec program macierzysty zostaje zastąpiony nowym.
+
+
+Ponieżej przedstawiam logi programu dla argumentów:
+    - mask 10
+    - ignore 10
+    - handle 10
+
+mask 10
+Signal 10 will be mask!
+	Inside handler function
+	Inside handler signal 10 is pending
+
+Child process do:
+	Inside handler function
+	Inside handler signal 10 is pending
+6603 proces was finished.
+---------------
+
+EXEC do:
+mask
+Signal 10 will be mask!
+	Inside handler function
+	Inside handler signal 10 is pending
+
+Child process do:
+	Inside handler function
+	Inside handler signal 10 is pending
+6604 proces was finished.
+---------------
+
+=========================
+
+ignore 10
+Signal 10 will be ignore!
+
+Child process do:
+6684 proces was finished.
+---------------
+
+EXEC do: ignore 10
+Signal 10 will be ignore!
+
+Child process do:
+6685 proces was finished.
+
+========================
+
+handle 10
+Signal 10 will be handle!
+	Inside handler function
+
+Child process do:
+	Inside handler function
+6711 proces was finished.
+---------------
+
+EXEC do: handle 10
+Signal 10 will be handle!
+	Inside handler function
+
+Child process do:
+	Inside handler function
+6714 proces was finished.
+---------------
