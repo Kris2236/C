@@ -1,0 +1,11 @@
+Dostawcy są zwalniani po 10 sekuncach braku zleceń.
+Pozycja w kolejce jest wybierana na podstawie najmniejszego indeksu.
+
+Dla N,M < 5:
+
+    Operacje są spójne, dlatego różna liczba M i N oraz ich różne czasy operacji są wykonywane w ściśle określonej sekwencji. W tym przypadku możemy prześledzić logi operacji.
+
+Dla N, M > 5:
+
+    Trudno jest przeanalizować tak dużą liczbę informacji, jednak są one wyświetlane asynchronicznie przez co wszystkie operacje i informacje są spójne.
+
