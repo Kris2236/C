@@ -1,0 +1,1 @@
+Napisz funkcję, która jako parametry pobiera nazwę pliku do odczytu, nazwę pliku do zapisu oraz 2 napisy,n1 oraz n2(tablice znaków). Zadaniem funkcji jest przepisanie pliku wejściowego do wyjściowego w taki sposób, że każde wystąpienie napisu n1 w pliku wejściowym ma zostać zamienione na napis n2 w pliku wyjściowym.
